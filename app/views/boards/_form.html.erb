@@ -1,0 +1,8 @@
+<%= @board.errors.full_messages.first if @board.errors.any? %>
+
+<%= form_for ([current_user, @board]) do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.submit %>
+
+<% end %>

@@ -1,7 +1,7 @@
 <h1><%= @board.title %></h1>
 
 <% @board.pins.each do |pin| %>
-<div>
+<div class="pin">
   <h2><%= pin.title %></h2>
   <%= image_tag pin.image %>
 </div>
