@@ -1,1 +1,9 @@
 <h1> Prepare to Be Pinspired!</h1>
+
+<% @boards.each do |board| %>
+<div class="board"><%= link_to board.title, user_board_path(User.find(board.user_id), board) %></div>
+<% end %>
+
+<% if current_user %>
+<div class="user-action"><%= link_to "View My Boards", user_boards_path(current_user) %></div>
+<% end %>

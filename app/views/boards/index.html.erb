@@ -1,3 +1,4 @@
 <% @boards.each do |board| %>
-<div class="board"><%= link_to board.title, user_board_path(current_user, board) %><div>
+  <div class="board"><%= link_to board.title, user_board_path(current_user, board) %></div>
 <% end %>
+<div class="user-action"><%= link_to "Add New Board", new_user_board_path(current_user) %></div>

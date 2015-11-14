@@ -1,8 +1,19 @@
 <h1><%= @board.title %></h1>
+<% if current_user == @user %>
+<%= link_to "Edit Board Title", edit_user_board_path(current_user, @board) %>
+<% end %>
 
 <% @board.pins.each do |pin| %>
 <div class="pin">
-  <h2><%= pin.title %></h2>
+  <% if current_user == @user %>
+  <h2><%= link_to pin.title, edit_user_board_pin_path(current_user, @board, pin) %></h2>
+  <% end %>
   <%= image_tag pin.image %>
 </div>
 <% end %>
+
+<% if current_user == @user %>
+  <div class="user-action"><%= link_to "Add Pin", new_user_board_pin_path(current_user, @board) %></div>
+  <div class="user-action"><%= link_to "Delete Board", user_board_path(current_user, @board), method: :delete %></div>
+<% end %>
+  <div class="user-action"><%= link_to "My Boards", user_boards_path(current_user) %></div>

@@ -1,0 +1,9 @@
+<div class="notification alert"><%= @pin.errors.full_messages.first if @pin.errors.any? %></div>
+
+<%= form_for ([current_user, @board, @pin]) do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.label :image %>
+<%= f.text_field :image %>
+<%= f.submit %>
+<% end %>

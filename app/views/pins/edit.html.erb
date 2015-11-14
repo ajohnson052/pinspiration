@@ -1,0 +1,8 @@
+<h1><%= @pin.title %></h1>
+
+<%= image_tag @pin.image %>
+
+<%= render 'form' %>
+
+<%= link_to "Delete Pin", user_board_pin_path(current_user, @board, @pin), method: :delete %>
+<%= link_to "Back to Board", user_board_path(current_user, @board) %>

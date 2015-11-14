@@ -24,6 +24,7 @@ class BoardsController < ApplicationController
   #show
   def show
     @board = Board.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   #edit
@@ -44,6 +45,12 @@ class BoardsController < ApplicationController
   end
 
   #destroy
+  def destroy
+    @board = Board.find(params[:id])
+    @board.destroy
+    redirect_to user_boards_path(current_user)
+  end
+
   private
   def board_params
     params.require(:board).permit(:title)

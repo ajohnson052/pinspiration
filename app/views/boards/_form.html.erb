@@ -1,4 +1,4 @@
-<%= @board.errors.full_messages.first if @board.errors.any? %>
+<div class="notification alert"><%= @board.errors.full_messages.first if @board.errors.any? %></div>
 
 <%= form_for ([current_user, @board]) do |f| %>
 <%= f.label :title %>
